@@ -4,7 +4,7 @@ metadata:
   labels:
     app: basemodel
   name: basemodel
-  namespace: reco-poc
+  namespace: default
   resourceVersion: "1908"
   uid: 04e69c92-9a17-41ea-9250-9f55abeab34c
 spec:
@@ -34,7 +34,7 @@ metadata:
   labels:
     app: basemodel
   name: basemodel
-  namespace: reco-poc
+  namespace: default
   resourceVersion: "1730"
   uid: 970ee93b-ec29-4ff5-9c5e-2c6b0343a5c0
 spec:
