@@ -17,7 +17,6 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  generation: 1
   labels:
     app: web
   name: web
