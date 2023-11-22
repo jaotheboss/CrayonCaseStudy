@@ -40,7 +40,7 @@ spec:
     spec:
       containers:
       - name: web-app
-        image: web-app:0.1
+        image: web-app:0.2
         imagePullPolicy: IfNotPresent
         env:
         - name: MODEL_IP
