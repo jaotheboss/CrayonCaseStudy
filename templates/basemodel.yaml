@@ -1,0 +1,66 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: basemodel
+  name: basemodel
+  namespace: default
+  resourceVersion: "1908"
+  uid: 04e69c92-9a17-41ea-9250-9f55abeab34c
+spec:
+  clusterIP: 10.100.82.151
+  clusterIPs:
+  - 10.100.82.151
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - port: 8000
+    protocol: TCP
+    targetPort: 8000
+  selector:
+    app: basemodel
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  generation: 1
+  labels:
+    app: basemodel
+  name: basemodel
+  namespace: default
+  resourceVersion: "1730"
+  uid: 970ee93b-ec29-4ff5-9c5e-2c6b0343a5c0
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: basemodel
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: basemodel
+    spec:
+      containers:
+      - name: base-reco
+        image: base-reco:0.1
+        imagePullPolicy: IfNotPresent
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
