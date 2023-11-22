@@ -5,8 +5,6 @@ metadata:
     app: basemodel
   name: basemodel
   namespace: default
-  resourceVersion: "1908"
-  uid: 04e69c92-9a17-41ea-9250-9f55abeab34c
 spec:
   clusterIP: 10.100.82.151
   clusterIPs:
@@ -35,8 +33,6 @@ metadata:
     app: basemodel
   name: basemodel
   namespace: default
-  resourceVersion: "1730"
-  uid: 970ee93b-ec29-4ff5-9c5e-2c6b0343a5c0
 spec:
   progressDeadlineSeconds: 600
   replicas: 1
@@ -51,7 +47,6 @@ spec:
     type: RollingUpdate
   template:
     metadata:
-      creationTimestamp: null
       labels:
         app: basemodel
     spec:

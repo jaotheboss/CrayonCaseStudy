@@ -22,8 +22,6 @@ metadata:
     app: web
   name: web
   namespace: default
-  resourceVersion: "2147"
-  uid: a2507d27-28ac-47d7-99cd-bd29315ff26a
 spec:
   progressDeadlineSeconds: 600
   replicas: 1
@@ -38,7 +36,6 @@ spec:
     type: RollingUpdate
   template:
     metadata:
-      creationTimestamp: null
       labels:
         app: web
     spec:
