@@ -1,0 +1,18 @@
+FROM python:3.11-slim
+
+COPY surprise/ /surprise/
+WORKDIR /surprise
+RUN apt-get update && \
+    apt-get -y install gcc mono-mcs && \
+    rm -rf /var/lib/apt/lists/*
+RUN python setup.py install
+
+WORKDIR /app
+
+COPY data/ /app/data/
+COPY main.py /app/
+COPY requirements_mlmodel.txt /app/
+
+RUN pip install -r /app/requirements_mlmodel.txt
+
+CMD ["python", "/app/main.py"]
