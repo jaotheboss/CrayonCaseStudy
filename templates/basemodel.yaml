@@ -51,7 +51,7 @@ spec:
     spec:
       containers:
       - name: base-reco
-        image: mlmodel:0.1 # base-reco:0.1 # 
+        image: ml-model:0.1 # base-reco:0.1 # 
         imagePullPolicy: IfNotPresent
       dnsPolicy: ClusterFirst
       restartPolicy: Always
