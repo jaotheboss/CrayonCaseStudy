@@ -2,7 +2,6 @@
 
 ## TODO:
 - [x] Install ArgoCD into Docker K8s. Test out the sync up. 
-- [x] Download mlflow
 
 ## Installation
 1. Run `pip install -r requirements.txt`
@@ -13,7 +12,7 @@
 1. Base Recommender service
    1. `docker build -t base-reco:0.1 -f Dockerfile.base_model .`
 2. ML Recommender service
-   1. `docker build -t mlmodel:0.1 -f Dockerfile.mlmodel`
+   1. `docker build -t ml-model:0.1 -f Dockerfile.mlmodel .`
 3. Web App Interface
    1. `docker build -t web-app:0.1 -f Dockerfile.app . `
 
@@ -24,7 +23,7 @@ Deploying the model and app:
 3. `kubectl set image deployment/basemodel base-reco=mlmodel:0.1`
    1. basemodel is the name of the deployment, and base-reco is the name of the container that is referenced in the deployment
 
-## ArgoCD Approach
+## [ArgoCD Approach](https://prianjali98.medium.com/argo-cd-the-gitops-way-to-deploy-ml-applications-8de1555c1f8b)
 1. Make changes in the template
 2. `git add templates/basemodel.yaml` -> `git commit -m "changes to template"` -> `git push`
 3. ArgoCD should be configred with self-healing and auto-pruning -> Sync with the templates found in the repo
